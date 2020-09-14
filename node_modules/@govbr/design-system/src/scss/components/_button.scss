@@ -1,0 +1,128 @@
+.#{$prefix}button {
+  @include button;
+
+  &.is-primary,
+  &.primary,
+  &[primary] {
+    background: v(color-primary-default);
+    color: v(color-secondary-01);
+
+    &:not(:disabled) {
+      &:focus,
+      &[focus],
+      &:hover,
+      &[hover] {
+        color: v(color-primary-default);
+      }
+
+      &:active,
+      &[active] {
+        color: v(color-secondary-01);
+      }
+    }
+  }
+
+  &.is-call-to-action,
+  &.action,
+  &[action] {
+    @include media-breakpoint-up(sm) {
+      min-width: 220px;
+    }
+    background: v(color-highlight);
+    border-color: v(color-secondary-03);
+    border-radius: 40px;
+    border-width: 16px;
+    color: v(color-secondary-01);
+    font-size: v(font-size-scale-up-01);
+    height: 80px;
+    line-height: 48px;
+    padding: 0 44px;
+
+    &:not(:disabled):not(:active):not([active]) {
+      &:focus,
+      &[focus] {
+        color: v(color-highlight);
+      }
+
+      &:hover,
+      &[hover] {
+        background: v(color-support-01);
+        color: v(color-secondary-01);
+      }
+    }
+  }
+
+  &.is-secondary,
+  &.secondary,
+  &[secondary] {
+    border-color: v(color-primary-default);
+  }
+
+  &.is-mini,
+  &.mini,
+  &[mini] {
+    font-size: v(font-size-scale-down-01);
+    height: 32px;
+    line-height: 32px;
+    min-width: 68px;
+    width: auto;
+  }
+
+  &.is-circle,
+  &.circle,
+  &[circle] {
+    border-radius: 50%;
+    height: v(icon-size-3x);
+    min-width: 0;
+    padding: 0;
+    width: v(icon-size-3x);
+    &.is-call-to-action,
+    &.action,
+    &[action] {
+      height: v(icon-size-5x);
+      width: v(icon-size-5x);
+    }
+    &.is-mini,
+    &.mini,
+    &[mini] {
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  &:not(:disabled) {
+    @include focus;
+    &[focus] {
+      background: v(status-highlight-background)
+        linear-gradient(v(status-focused-overlay), v(status-focused-overlay));
+    }
+
+    @include hover;
+    &[hover] {
+      background: v(status-hover-background);
+    }
+
+    @include active;
+    &:active {
+      color: v(color-secondary-01);
+    }
+
+    &[active] {
+      background: v(status-pressed-background);
+      color: v(color-secondary-01);
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

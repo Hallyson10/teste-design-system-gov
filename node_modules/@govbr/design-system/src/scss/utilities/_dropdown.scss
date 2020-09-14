@@ -1,0 +1,41 @@
+// Dropdown
+.dropdown {
+  position: relative;
+  z-index: 1;
+  .menu {
+    background: v(color-secondary-01, $color-secondary-01);
+    box-shadow: 0 3px 6px rgba($color-secondary-09, 0.22);
+    display: none;
+    position: absolute;
+    // Rótulo
+    .title {
+      display: block;
+      font-weight: v(font-weight-semi-bold, $font-weight-semi-bold);
+      padding: $spacer ($spacer * 2);
+    }
+    // Item de menu
+    .item {
+      background: v(color-secondary-01, $color-secondary-01);
+      border: 0;
+      display: block;
+      padding: $spacer ($spacer * 2);
+      position: relative;
+      text-align: left;
+      width: 100%;
+    }
+    // Regras para botões e links
+    a,
+    button {
+      &.item {
+        text-decoration: none;
+        &:hover {
+          background: v(status-hover-background, $status-hover-background);
+        }
+      }
+    }
+    // Menu ativo
+    &.is-active {
+      display: block;
+    }
+  }
+}

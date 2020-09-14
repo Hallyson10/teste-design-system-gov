@@ -1,0 +1,42 @@
+// Seleção de idioma
+.#{$prefix}language {
+  z-index: 4;
+  // Idioma selecionado e trigger
+  .trigger {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: $body-color;
+    display: flex;
+    font-weight: $font-weight-base;
+    padding: 0;
+    .arrow {
+      font-size: 10px;
+      margin-left: $spacer;
+    }
+  }
+  // Listagem de idiomas
+  .menu {
+    border-top: 1px solid $color-warning;
+    margin: $spacer 0 0;
+    right: 0;
+    // Rótulo da seleção
+    .title {
+      border-bottom: 1px solid $color-secondary-04;
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 600;
+      margin: ($spacer * 2) ($spacer * 2) $spacer;
+      padding: 0;
+    }
+    // Item selecionável
+    .item {
+      white-space: nowrap;
+      // Item selecionado
+      &.is-active {
+        color: $color-primary-default;
+        font-weight: 600;
+      }
+    }
+  }
+}

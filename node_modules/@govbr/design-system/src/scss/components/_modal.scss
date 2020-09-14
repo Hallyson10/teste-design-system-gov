@@ -1,0 +1,94 @@
+$br-modal-box-shadow-color: rgba(0, 0, 0, 0.16);
+
+.#{$prefix}modal {
+  box-shadow: 0 3px 6px $br-modal-box-shadow-color;
+  padding: $spacer * 2;
+  width: 28.8rem;
+  &-header {
+    margin-bottom: $spacer * 3.5;
+    position: relative;
+    .close {
+      background: transparent;
+      border: 0;
+      color: v(color-primary-default, $color-primary-default);
+      font-weight: v(font-weight-medium, $font-weight-medium);
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: -($spacer * 0.5);
+    }
+  }
+  &-title {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    font-size: v(font-size-scale-up-01, $font-size-scale-up-01);
+    font-weight: v($font-weight-bold, $font-weight-bold);
+    margin: 0;
+    max-height: v(font-size-scale-up-07, $font-size-scale-up-07);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80%;
+
+    &.is-inline {
+      -webkit-line-clamp: 1;
+      max-height: $h3-font-size * 2;
+    }
+  }
+  &-body {
+    margin: 0 0 ($spacer * 5);
+  }
+  &-footer {
+    display: flex;
+  }
+  .#{$prefix}card {
+    border: 0;
+    font-size: v(font-size-scale-base, $font-size-scale-base);
+    height: 216px;
+    margin-left: -$spacer * 2;
+    margin-right: -$spacer * 2;
+    overflow: auto;
+    padding: 0 ($spacer * 2);
+    resize: none;
+    width: auto;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: v(color-secondary-03, $color-secondary-03);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: v(color-secondary-06, $color-secondary-06);
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        background: v(color-secondary-07, $color-secondary-07);
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .#{$prefix}modal {
+    &.is-xsmall {
+      max-width: 220px;
+      min-width: 220px;
+    }
+    &.is-small {
+      max-width: 300px;
+      min-width: 300px;
+    }
+    &.is-medium {
+      max-width: 500px;
+      min-width: 500px;
+    }
+    &.is-large {
+      max-width: 640px;
+      min-width: 640px;
+    }
+  }
+}

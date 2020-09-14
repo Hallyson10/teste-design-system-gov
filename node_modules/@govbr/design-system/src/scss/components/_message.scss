@@ -1,0 +1,143 @@
+.#{$prefix}message {
+  color: v(color-secondary-08, $color-secondary-08);
+  display: flex;
+  margin-bottom: $margin-default * 2;
+
+  .icon {
+    align-items: center;
+    color: $color-secondary-01;
+    display: flex;
+    font-size: 175%;
+    justify-content: center;
+    width: $message-icon;
+
+    img {
+      max-width: 32px;
+    }
+  }
+
+  .content {
+    align-self: center;
+    flex: 1;
+    padding: $spacer * 2.5 $spacer * 2.5;
+    font-size: v(font-size-scale-up-01);
+
+    strong {
+      font-weight: 600;
+    }
+
+    a {
+      color: $color-secondary-08;
+      text-decoration: underline;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+
+    * {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  a {
+    color: v(color-secondary-08, $color-secondary-08);
+    text-decoration: underline;
+
+    &:hover {
+      color: v(color-primary-lighten-01, $color-primary-lighten-01); //Checar
+    }
+  }
+
+  .close button {
+    &.br-button.is-tertiary {
+      margin: 0;
+    }
+  }
+
+  // Estados
+  @each $state,
+  $color in (success, $color-success),
+  (danger, $color-danger),
+  (warning, $color-warning),
+  (info, $color-info) {
+    &.is-#{$state} {
+      background: scale-color($color, $lightness: 90%);
+
+      .icon {
+        background: transparent;
+        color: $color;
+      }
+
+      .close {
+        align-items: flex-start;
+        display: flex;
+
+        button {
+          background: transparent;
+          border: 0;
+          color: $color;
+          padding: 0;
+
+          &.br-button.is-tertiary:hover {
+            background-color: transparent;
+            color: $color;
+          }
+        }
+      }
+
+      @if ($state==warning) {
+
+        .icon,
+        .close button {
+          color: $color-secondary-08;
+
+          &.br-button.is-tertiary:hover {
+            background-color: transparent;
+            color: $color-secondary-08;
+          }
+        }
+      }
+    }
+
+    //Mensagens Complementares
+    &.hint {
+      align-items: center;
+      background: transparent;
+      color: $color-info;
+
+      .icon {
+        background: transparent;
+        color: $color-info;
+      }
+
+      .content {
+        padding: 0;
+
+      }
+    }
+  }
+}
+
+//Mensagens de Validação
+.feedback {
+  align-items: center;
+  //font-size: v(font-size-scale-down-01, $font-size-scale-down-01);
+  font-style: italic;
+  font-weight: v(font-weight-medium, $font-weight-medium);
+  padding: $spacer * 0.5 0;
+
+  &.is-valid {
+    color: v(color-success, $color-success);
+  }
+
+  &.is-invalid {
+    color: v(color-danger, $color-danger);
+  }
+
+  &.is-disabled {
+    color: $color-secondary-07;
+  }
+}

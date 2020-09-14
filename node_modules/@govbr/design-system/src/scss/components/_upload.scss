@@ -1,0 +1,25 @@
+.#{$prefix}upload {
+  input,
+  label {
+    display: none;
+  }
+  .upload-button {
+    @include media-breakpoint-up(sm) {
+      border: 1px dashed;
+      border-radius: 4px;
+      padding-left: $spacer * 2;
+      padding-right: $spacer * 2;
+      text-align: left;
+      width: 100%;
+    }
+  }
+
+  .feedback {
+    margin-top: $spacer;
+  }
+
+  .upload-list {
+    @include list;
+    @include item($ellipsis: true);
+  }
+}

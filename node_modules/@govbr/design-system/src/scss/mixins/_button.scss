@@ -1,0 +1,24 @@
+@mixin button {
+  @include media-breakpoint-up(sm) {
+    min-width: 156px;
+    width: auto;
+  }
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  color: v(color-primary-default);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: v(font-weight-semi-bold);
+  height: 40px;
+  line-height: 40px;
+  padding: 0 40px;
+  text-align: center;
+  width: 100%;
+  &:not(:disabled) {
+    @include focus;
+    @include hover;
+    @include active;
+  }
+}

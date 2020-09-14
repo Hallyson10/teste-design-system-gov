@@ -1,0 +1,25 @@
+// Atalhos para conteúdo
+.skip-menu {
+  list-style: none;
+  position: absolute;
+  a {
+    color: v(color-secondary-01, $color-secondary-01);
+    position: absolute;
+    top: -200em;
+    white-space: nowrap;
+    &:focus {
+      align-items: center;
+      background: v(color-highlight, $color-highlight);
+      border-radius: $button-radius;
+      display: inline-flex;
+      height: $button-height-default;
+      left: 20px;
+      outline: 0;
+      padding: 0 $button-padding;
+      position: absolute;
+      text-decoration: none;
+      top: auto;
+      z-index: 11;
+    }
+  }
+}

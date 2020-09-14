@@ -1,0 +1,76 @@
+// Prefixo de uso nos componentes
+$prefix: 'br-';
+
+// Tipos de displays
+$display-types: 'block', 'flex', 'inline', 'inline-block', 'inline-flex';
+$display-prefix: 'display-';
+
+// Classes de visibilidade (nome da classe, display)
+$visibilities: (visible, block), (hidden, none);
+
+// TODO: Trocar as variáveis abaixo por tokens
+
+// Espaçamentos
+$margin-default: $spacer * 2; // margem entre elementos 16px
+
+$button-padding: $spacer * 3; // 24px
+
+// Bordas
+$border-color: $color-secondary-04;
+
+$input-border-color: $color-secondary-06;
+$input-border-width: 1px;
+
+// Fundos
+$search-bg: $color-secondary-03;
+
+// Sombras
+$header-shadow: 0 3px 6px rgba($color-secondary-09, 0.16);
+$card-box-shadow: 0 3px 6px rgba($color-secondary-09, 0.16);
+$modal-shadow: 0 3px 6px rgba($color-secondary-09, 0.16);
+$list-box-shadow: 0 3px 6px rgba($color-secondary-09, 0.16);
+$list-box-shadow-inverse: 0 -4px 6px rgba($color-secondary-09, 0.16);
+
+// Arredondamentos
+$input-radius: 6px;
+$button-radius: 100px;
+$checkbox-radius: 4px;
+
+// Tamanhos
+$logo-mobile-height: 24px;
+$logo-mobile-width: 64px;
+$logo-desktop-height: 50px;
+$logo-desktop-width: 150px;
+
+$header-site-mobile-height: 45px;
+$header-site-tablet-height: 85px;
+$header-site-desktop-height: 150px;
+$header-system-mobile-height: 110px;
+$header-system-desktop-height: 144px;
+$header-search-height: 55px;
+
+$button-height-default: 44px;
+$button-height-small: 32px;
+$button-min-width: 144px;
+$button-action-min-width: 180px;
+$button-action-border-width: 14px;
+$button-circle-default: 36px;
+$button-circle-medium: 48px;
+$button-circle-large: 64px;
+
+$checkbox-default: 24px;
+$checkbox-small: 20px;
+
+$input-default: 40px;
+$input-medium: 40px;
+$input-small: 32px;
+
+$message-icon: 64px;
+
+$tabs-vertical-icons: 32px;
+
+$card-size: 240px;
+$card-small-size: 216px;
+$card-medium-size: 272px;
+$card-large-w-size: 368px;
+$card-large-h-size: 168px;

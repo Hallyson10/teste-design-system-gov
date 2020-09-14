@@ -1,0 +1,150 @@
+.#{$prefix}menu {
+  background: v(color-secondary-03);
+  box-shadow: 3px 0 3px rgba(v(rgb-secondary-09), 0.16);
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  overflow: hidden;
+  .folders {
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .close-menu {
+      left: $spacer;
+      position: absolute;
+      top: 10px;
+      z-index: 1;
+    }
+    .folder {
+      .header {
+        align-items: center;
+        background: v(color-secondary-01);
+        border: 0;
+        border-color: v(color-secondary-04);
+        border-style: solid;
+        border-width: 0 0 1px;
+        color: v(color-primary-default);
+        display: flex;
+        padding: 0 0 0 $spacer * 4;
+        position: relative;
+        text-align: left;
+        width: 100%;
+        &[hidden] {
+          display: none;
+        }
+        &::after {
+          background: v(color-warning);
+          bottom: 0;
+          content: "";
+          height: 2px;
+          margin-left: $spacer * 2;
+          position: absolute;
+          width: 80px;
+        }
+        &.logo {
+          &::after {
+            content: none;
+          }
+        }
+        .support {
+          padding: 0 $spacer * 2;
+          &:first-child {
+            padding-right: 0;
+          }
+          &:last-child {
+            padding-left: 0;
+          }
+        }
+        .content {
+          flex: 1;
+          padding: $spacer * 2;
+          img {
+            display: block;
+            max-height: 20px;
+            object-fit: scale-down;
+            object-position: 0 0;
+          }
+        }
+        &:not([disabled]) {
+          @include focus;
+          @include hover;
+          @include active;
+        }
+      }
+      .item {
+        align-items: center;
+        background: v(color-secondary-02);
+        border: 0;
+        border-color: v(color-secondary-04);
+        border-style: solid;
+        border-width: 0 0 1px;
+        color: v(color-primary-default);
+        display: flex;
+        padding: 0 0 0 $spacer * 4;
+        text-align: left;
+        width: 100%;
+        .support {
+          padding: 0 $spacer * 2;
+          &:first-child {
+            padding-right: 0;
+          }
+          &:last-child {
+            padding-left: 0;
+          }
+        }
+        .content {
+          flex: 1;
+          padding: $spacer * 2;
+        }
+        &:not([disabled]) {
+          @include focus;
+          @include hover;
+          @include active;
+          &:active,
+          &.active,
+          &[active] {
+            background: v(status-activated-background);
+            color: v(status-activated-text);
+            &[hidden]{
+              display: none;
+            }
+          }
+        }
+        &[active] {
+          padding-left: 0 !important;
+          .support {
+            order: -1;
+            padding-left: $spacer;
+            padding-right: 0;
+          }
+        }
+        &[linked] {
+          background: v(status-activated-background) !important;
+          color: v(status-activated-text) !important;
+        }
+        &[disabled] {
+          background: v(status-disabled-background);
+          color: v(status-disabled-text);
+        }
+      }
+    }
+  }
+  .footer {
+    background: v(color-secondary-01);
+    padding: $spacer * 3 0 0 $spacer * 4;
+    .footer-block {
+      padding: 0 $spacer * 2 $spacer * 4;
+      .title {
+        font-weight: v(font-weight-semi-bold);
+      }
+      .content {
+        font-weight: v(font-weight-medium);
+      }
+    }
+  }
+}

@@ -1,0 +1,201 @@
+.#{$prefix}tooltip, 
+.#{$prefix}notification {
+  background: v(color-info, $color-info);
+  color: v(color-secondary-01, $color-secondary-01);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  //padding: $spacer * 2;
+  font-weight:v(font-weight-semi-bold,$font-weight-semi-bold);
+  padding: 16px 36px;
+  font-size: v(font-size-scale-base,$font-size-scale-base);
+  border-radius: 4px;
+  display: block;
+  position: absolute !important;
+  opacity: 0;
+  animation-name: fadeOutOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+  visibility: hidden;
+  max-width: 240px;
+  z-index: 999;
+
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOutOpacity {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  &[data-show] {
+    visibility: visible;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.4s;
+  }
+
+  &[popover] {
+    max-width: 360px;
+    width: auto;
+  }
+  &[success] {
+    background: v(color-success, $color-success);
+    .arrow {
+      border-color: v(color-success, $color-success);
+    }
+  }
+  &[error] {
+    background: v(color-danger, $color-danger);
+    .arrow {
+      border-color:  v(color-danger, $color-danger);
+    }
+  }
+  &[warning] {
+    background: v(color-warning, $color-warning);
+    color: v(color-secondary-08, $color-secondary-08);
+    .arrow {
+      border-color: v(color-warning, $color-warning);
+    }
+  }
+  &[info],
+  & {
+    background: v(color-info, $color-info);
+    .arrow {
+      border-color: v(color-info, $color-info);
+    }
+  }
+
+  .arrow {
+    position: absolute !important;
+    z-index: -1 !important;
+    width: 0px;
+    height: 0px;
+  }
+
+  &[data-popper-placement^='top'] > .arrow {
+    bottom: -8px;
+    margin-left: 0px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top-width: 8px;
+    border-top-style: solid;
+  }
+  
+  &[data-popper-placement^='bottom'] > .arrow {
+    top: -8px;
+    margin-left: 0px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom-width: 8px;
+    border-bottom-style: solid;
+  }
+  
+  &[data-popper-placement^='left'] > .arrow {
+    right: -8px;
+    margin-top: -8px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left-width: 8px; 
+    border-left-style: solid;
+  }
+  
+  &[data-popper-placement^='right'] > .arrow {
+    left: -8px;
+    margin-top: -8px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent; 
+    border-right-width: 8px;
+    border-right-style: solid; 
+  }
+
+  .text,
+  .subtext,
+  .link {
+    display: block;
+    width: 100%;
+  }
+
+  .popover-header {
+    font-size:  v(font-size-scale-base,$font-size-scale-base);
+    text-align: center;
+    margin-bottom: 1em;
+    width: 180px;
+    float: right;
+    clear: right;
+    .fas,
+    .svg-inline--fa {
+      font-size: v(font-size-scale-up-06,$font-size-scale-up-06);
+      text-align: center;
+    } 
+  }
+  .popover-image {
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    max-height: 120px;
+    border: 3px solid v(color-secondary-01, $color-secondary-01);
+    overflow: hidden;
+    float: left;
+    margin-right: 15px;
+    margin-left: -10px;
+    & + .popover-header {
+      text-align: left;
+    }
+  }
+  .popover-body {
+    font-size: v(font-size-scale-down-01,$font-size-scale-down-01);
+    margin-bottom: 1em;
+    width: 180px;
+    float: right;
+    clear: right;
+  }
+  .popover-footer {
+    font-size: v(font-size-scale-down-01,$font-size-scale-down-01);
+    text-align: center;
+    width: 180px;
+    float: right;
+    clear: both;
+  }
+
+  
+  .text {
+    font-size: v(font-size-scale-base, $font-size-scale-base);
+    font-weight: v(font-weight-semi-bold,$font-weight-semi-bold);
+  }
+
+  .subtext {
+    font-size: v(font-size-scale-down-01,$font-size-scale-down-01);
+    font-weight: v(font-weight-medium,$font-weight-medium);
+  }
+
+  .link {
+    text-decoration: underline;
+    width: 100%;
+    text-align: right;
+    color: inherit;
+  }
+
+  .close {
+    background: transparent;
+    position: absolute;
+    color: inherit;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+}

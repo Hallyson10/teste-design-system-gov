@@ -1,0 +1,21 @@
+// Gerar classes de display
+@each $display in $display-types {
+  @include display($display, "#{$display-prefix}#{$display}");
+}
+
+// Gerar classes para visibilidade na Grid
+@each $className, $display in $visibilities {
+  @include display($display, $className);
+}
+
+// Gerar as classes de display e visibilidade de acordo com o Breakpoint
+@each $breakpoint, $width in $breakpoints {
+  @media (min-width: $width) {
+    @each $display in $displays {
+      @include display($display, "#{$display-prefix}#{$display}", $breakpoint);
+    }
+    @each $className, $display in $visibilities {
+      @include display($display, $className, $breakpoint);
+    }
+  }
+}

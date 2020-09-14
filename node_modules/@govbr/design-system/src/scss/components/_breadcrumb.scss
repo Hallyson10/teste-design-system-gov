@@ -1,0 +1,71 @@
+.#{$prefix}breadcrumb {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  // Página inicial
+  .home {
+    a {
+      color: v(color-secondary-07,$color-secondary-07);
+      &:hover,
+      &:focus {
+        color: v(color-primary-lighten-01,$color-primary-lighten-01);
+        text-decoration: none;
+      }
+    }
+  }
+  // Cada item
+  li {
+    color: v(color-secondary-07,$color-secondary-07);
+    display: inline;
+    font-size: v(font-size-scale-down-01, $font-size-scale-down-01);
+    font-weight: v(font-weight-semi-bold, $font-weight-semi-bold);
+    flex: 0 0 auto;
+    a {
+      color: v(color-secondary-08,$color-secondary-08);
+      font-weight: v(font-weight-medium, $font-weight-medium);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &.more {
+      svg {
+        background-color: v(color-secondary-04, $color-secondary-04);
+        padding: 0 2px;
+        margin: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  // Separador
+  li + li {
+    &::before {
+      color: v(color-secondary-04, $color-secondary-04);
+      content: ">";
+      font-size: v(font-size-scale-down-01, $font-size-scale-down-01);
+      font-weight: v(font-weight-regular, $font-weight-regular);
+      padding: 0 ($spacer * 1);
+    }
+  }
+  // Item ativo
+  .is-active {
+    font-weight: v(font-weight-bold, $font-weight-bold);
+    a {
+      font-weight: v(font-weight-bold, $font-weight-bold);
+    }
+  }
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: v(color-secondary-04);
+    border-radius: 0px
+  }
+  &::-webkit-scrollbar-thumb {
+    background: v(color-secondary-05);
+    border-radius: 0px
+  }
+}
